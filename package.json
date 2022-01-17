@@ -1,0 +1,36 @@
+{
+  "name": "ezcss-tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all start:serve build:css watch:css",
+    "start:serve": "browser-sync start --proxy \"http://localhost:8080\" --files \"*.*\"",
+    "start:proxy": "php -S localhost:8080",
+    "build:css": "cross-env NODE_ENV=production postcss ./styles/main.css -o ./assets/styles/main.min.css",
+    "watch:css": "cross-env NODE_ENV=development postcss ./styles/main.css -o ./assets/styles/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misostack/ezcss-tailwind.git"
+  },
+  "author": "misostack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misostack/ezcss-tailwind/issues"
+  },
+  "homepage": "https://github.com/misostack/ezcss-tailwind#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^2.2.19"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.15",
+    "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^9.1.0"
+  }
+}
